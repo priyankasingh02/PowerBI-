@@ -59,22 +59,4 @@ Average performance rating: men: This KPI measures the average performance ratin
 
 Average Performance Rating: women: This KPI measures the average performance rating of female employees in the executive suite.
 
-Measure Used (DAX Formula)
-# Avg Men Rating = CALCULATE(AVERAGE(Pharma[FY20 Performance Rating]),FILTER(Pharma,Pharma[Gender]="Male"))
-
-# Female = CALCULATE(DISTINCTCOUNT(Pharma[Employee ID]),FILTER(Pharma,Pharma[Gender]="Female"))
-
-# male = CALCULATE(DISTINCTCOUNT(Pharma[Employee ID]),FILTER(Pharma,Pharma[Gender]="Male"))
-
-# Promoted FY20 = CALCULATE(COUNT(Pharma[Employee ID]),Pharma[Promotion in FY20?]="Y")+CALCULATE(COUNT(Pharma[Promotion in FY21?]),Pharma[Promotion in FY21?]="Yes")
-
-#Avg Female Rating = CALCULATE(AVERAGE(Pharma[FY20 Performance Rating]),FILTER(Pharma,Pharma[Gender]="Female"))
-
-#Employee Turnover = DIVIDE(Pharma[#Leaver],COUNT(Pharma[Employee ID]),0)
-
-#Leaver = CALCULATE(COUNT(Pharma[FY20 leaver?]), Pharma[FY20 leaver?]="Yes")
-
-% Female = DIVIDE(Pharma[# Female],Pharma[# Female]+Pharma[# male])
-
-% Male = DIVIDE(Pharma[# male],Pharma[# Female]+Pharma[# male])
 
