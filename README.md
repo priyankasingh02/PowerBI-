@@ -1,21 +1,22 @@
 # PwC-forage-virtual-experience
 
-The tasks given under PwC PowerBI Virtual Experience Program in Forage.
+The tasks are given under the PwC PowerBI Virtual Experience Program in Forage.
 
-Task 1: Introduction on PowerBI
+Task 1: Introduction to PowerBI
 
 Task 2: Call Centre Trends
 
 Create a dashboard in Power BI that reflects all relevant Key Performance Indicators (KPIs) and metrics in the dataset.
 
-This task requires you to create a dashboard in Power BI that displays all the relevant KPIs and metrics related to call center trends.
+This task requires you to create a dashboard in Power BI that displays all the relevant KPIs and metrics related to call centre trends.
 Possible KPIs include:
 
-Overall customer satisfaction: This KPI measures the satisfaction level of customers who contacted the call center for support.
+Overall customer satisfaction: This KPI measures the satisfaction level of customers who contacted the call centre for support.
 Overall calls answered/abandoned: This KPI measures the number of calls answered by agents versus the number of calls abandoned by customers.
 Calls by time: This KPI measures the volume of calls during different times of the day, week, or month.
 Average speed of answer: This KPI measures the average time taken by agents to answer customer calls.
 Agent’s performance quadrant -> average handle time (talk duration) vs calls answered: This KPI measures the performance of agents in terms of the average handle time of calls versus the number of calls answered.
+
 
 
 Task 3: Customer Retention
@@ -56,4 +57,24 @@ No. of leavers: This KPI measures the number of employees who left the company d
 
 Average performance rating: men: This KPI measures the average performance rating of male employees in the executive suite.
 
-Average Performance rating: women: This KPI measures the average performance rating of female employees in the executive suite.
+Average Performance Rating: women: This KPI measures the average performance rating of female employees in the executive suite.
+
+Measure Used (DAX Formula)
+# Avg Men Rating = CALCULATE(AVERAGE(Pharma[FY20 Performance Rating]),FILTER(Pharma,Pharma[Gender]="Male"))
+
+# Female = CALCULATE(DISTINCTCOUNT(Pharma[Employee ID]),FILTER(Pharma,Pharma[Gender]="Female"))
+
+# male = CALCULATE(DISTINCTCOUNT(Pharma[Employee ID]),FILTER(Pharma,Pharma[Gender]="Male"))
+
+# Promoted FY20 = CALCULATE(COUNT(Pharma[Employee ID]),Pharma[Promotion in FY20?]="Y")+CALCULATE(COUNT(Pharma[Promotion in FY21?]),Pharma[Promotion in FY21?]="Yes")
+
+#Avg Female Rating = CALCULATE(AVERAGE(Pharma[FY20 Performance Rating]),FILTER(Pharma,Pharma[Gender]="Female"))
+
+#Employee Turnover = DIVIDE(Pharma[#Leaver],COUNT(Pharma[Employee ID]),0)
+
+#Leaver = CALCULATE(COUNT(Pharma[FY20 leaver?]), Pharma[FY20 leaver?]="Yes")
+
+% Female = DIVIDE(Pharma[# Female],Pharma[# Female]+Pharma[# male])
+
+% Male = DIVIDE(Pharma[# male],Pharma[# Female]+Pharma[# male])
+
